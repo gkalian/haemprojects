@@ -18,7 +18,9 @@ module.exports = {
       compress: true
     },
     output: {
-        publicPath: "/",
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].[contenthash].js',
+      publicPath: './'
     },
     module: {
         rules: [
