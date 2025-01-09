@@ -1,0 +1,114 @@
+{
+    "projects": [
+        {
+        "id": 1,
+        "title": "White River House",
+        "description": "A small house in Morrowind style. House is located near the Anga's Mill (On the west way to Windhelm)",
+        "image": "https://staticdelivery.nexusmods.com/mods/110/images/86758/86758-1512033614-1627530467.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/86758",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/12307",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/257c1a02-34b5-488d-b0d5-1489e05e2650/White_River_House__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/8d7abd87-109b-46b9-8bc2-88136fd0e021/White_River_House__XB1_"
+    },
+    {
+        "id": 2,
+        "title": "Tel Mos",
+        "description": "A small house in mixed Dwemer and Telvanni style. Tel Mos is located near the Hillgrund's Tomb (On the way to Ivarstead).",
+        "image": "https://staticdelivery.nexusmods.com/mods/110/images/86469/86469-1511857590-2067601187.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/86758",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/11989",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/942e6ab0-f1cc-4073-b188-0b784057f5fc/Tel_Mos__PC_",
+        "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/ba7e7ef0-4a7a-43f9-95fb-e5d80a0b4691/Tel_Mos__PS4_",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/33c18faa-a7d3-4c42-8766-ff39897c3c8e/Tel_Mos__XB1_"
+    },
+    {
+        "id": 3,
+        "title": "Snippy - Droid Follower",
+        "description": "Snippy is a dwemer droid follower inspired by BB-8 from Star Wars. He is a non-combat follower with many functions.",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/87967-1-1511102666.png",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/87967",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/13642",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/6863f3fd-9a9b-494e-8819-e21ae733f348/Snippy___Droid_Follower__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/fb2b3211-b437-47a0-956e-f4c2c8c7fa46/Snippy___Droid_Follower__XB1_"
+    },
+    {
+        "id": 4,
+        "title": "Staff of Shalidor",
+        "description": "A small house on the tip of staff. Staff of Shalidor will be added to your inventory when you load the game. Equip staff and select an action. ",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/13764/13764-1511722209-1155645904.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/88091",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/13764",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/6b77395c-c7c6-4103-bea6-5c0427e067eb/Staff_of_Shalidor__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/b5564e25-1d65-4b75-8929-03f46e126614/Staff_of_Shalidor__XB1_"
+    },
+    {
+        "id": 5,
+        "title": "Ja'wa Follower",
+        "description": "Ja'wa is a follower inspired by jawas from Star Wars. He has many functions. Ja'wa live in lodge near the Sunderstone Gorge.",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/14039/14039-1513022435-1817033097.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/88359",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/14039",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/357b6eed-87ac-4740-8f86-1754797290a4/Ja_wa_Follower__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/d17d053d-677e-48ba-af44-c115e4f0e9df/Ja_wa_Follower__XB1_"
+    },
+    {
+        "id": 6,
+        "title": "Project AHO",
+        "description": "Project AHO is a large quest modification, comparable in size to a medium-sized DLC. Designed in the best traditions of Bethesda Game Studios, this mod adds to Skyrim a hidden settlement of Great House Telvanni. Determine its fate for yourself!",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/15996/15996-1521738495-1159963936.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/90276",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/15996",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/f6f3b224-268c-42a0-b204-f40d29379ae3/Project_AHO__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/1a2da845-827e-42de-a1b6-a84cec0dc7f2/Project_AHO__XB1_"
+    },
+    {
+        "id": 7,
+        "title": "AHO - Dwemer Ship",
+        "description": "AHO - Aetherium Hyperspace Observatory - is a large mobile player house, in Dwemer style. It is a stand-alone player home, part of our big DLC - Project AHO",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/16468/90700-1523555069-112648956.png",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/90700",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/16468",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/55ef9edc-ca95-43f5-b34b-e25f60f7ef34/AHO___Dwemer_Ship__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/95cb0697-5878-4b7d-a883-a476ab99655f/AHO___Dwemer_Ship__XB1_"
+    },
+    {
+        "id": 8,
+        "title": "Hermit's Stump",
+        "description": "A small house in Morrowind style. Hermit's Stump is located in the marvelous Hermit's Cave near the Hillgrund's Tomb (On the way to Ivarstead).",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/17247/91321-1526240642-63938988.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/91321",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/17247",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/4047acef-5491-4db2-b335-44031e2befdb/Hermit_s_Stump__PC_",
+        "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/691dd0fa-04a8-48d3-92d5-7330fed610d0/Hermit_s_Stump__PS4_",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/cf340f61-09b3-4aac-aa91-8668cbea352a/Hermit_s_Stump__XB1_"
+    },
+    {
+        "id": 9,
+        "title": "Carved Brink",
+        "description": "Carved Brink is a large quest modification, from the authors of “Project AHO”. This mod adds to Skyrim: a daedric plan of Peryite - The Pits, and an unknown part of Oblivion - Faceted Stones.",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/24351/24351-1553189630-1844394110.jpeg",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/96862",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/24351",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/31ddc5da-9f5f-4ee3-a5b7-8676c282e977/Carved_Brink__PC_",
+        "bethesdaPS4": "",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/5782bc8c-41e2-43a7-a341-50caafe85f53/Carved_Brink__XB1_"
+    },
+    {
+        "id": 10,
+        "title": "Wizard's Well",
+        "description": "A small house made only with vanilla assets in mixed Dwemer and Redoran style.",
+        "image": "https://staticdelivery.nexusmods.com/mods/1704/images/24578/24578-1553874348-1390686032.png",
+        "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/96965",
+        "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/24578",
+        "bethesdaPC": "https://creations.bethesda.net/en/skyrim/details/ae5c110e-bd42-4a3f-90a5-6c3d3cb68c3e/Wizard_s_Well__PC_",
+        "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/d9eac53c-5da8-4a7d-82a0-d58b79ce7b09/Wizard_s_Well__PS4_",
+        "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/a5f93da4-4ff2-4c21-b400-58271ad35e48/Wizard_s_Well__XB1_"
+    }
+]
+}
