@@ -1,4 +1,3 @@
-// Main.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import gsap from 'gsap';
