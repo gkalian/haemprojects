@@ -1,0 +1,15 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    font-family: inherit;
+    color: rgb(57 57 57 / 80%);
+    transition: all 0.3s;
+  }
+  
+  .footer:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
