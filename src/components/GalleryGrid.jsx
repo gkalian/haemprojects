@@ -1,76 +1,41 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
+import '../styles/galleryGrid.css';
 
-const GridContainer = styled('div')({
-  gap: '0.5rem',
-  flex: 'none',
-  position: 'relative',
-  width: '200vw',
-  height: '200vh',
-  display: 'grid',
-  gridTemplateRows: 'repeat(8, 1fr)',
-  gridTemplateColumns: '100%',
-  transform: 'rotate(-15deg) translateY(13%) translateX(10%)',
-  transformOrigin: 'center center',
-  backgroundColor: '#000000',
-  '& > *': {
-    backgroundColor: '#000000'
-  }
-});
-
-const Row = styled('div')({
-  display: 'grid',
-  gap: '0.5rem',
-  gridTemplateColumns: 'repeat(10, 1fr)',
-  willChange: 'transform, filter'
-});
-
-const GridItem = styled('div')({
-  position: 'relative'
-});
-
-const GridItemInner = styled('div')({
-  position: 'relative',
-  width: '100%',
-  height: '100%',
-  overflow: 'hidden',
-  borderRadius: '10px'
-});
-
-const GridItemImage = styled('div')({
-  width: '100%',
-  height: '100%',
-  backgroundSize: 'cover',
-  backgroundPosition: '50% 50%',
-  position: 'absolute',
-  top: 0,
-  left: 0
-});
+/**
+ * GalleryGrid component that displays images in a rotated grid layout
+ * Contains two components:
+ * - GalleryGrid: Main container that manages the overall grid layout
+ * - GalleryRow: Sub-component that renders each row of images
+ * Styled with galleryGrid.css for responsive and visually appealing presentation
+ * @param {Object} galleryData - Object containing gallery images data
+ * @param {React.RefObject} gridRef - Reference object for the grid container
+ * @returns {JSX.Element} GalleryGrid component with responsive image layout
+ */
 
 const GalleryRow = ({ images, rowIndex }) => (
-  <Row key={rowIndex} className="row">
+  <div key={rowIndex} className="gallery-row">
     {images.map((image, imageIndex) => (
-      <GridItem key={`${rowIndex}-${imageIndex}`} className="row_item">
-        <GridItemInner className="row_item-inner">
-          <GridItemImage
-            className="row_item-img"
+      <div key={`${rowIndex}-${imageIndex}`} className="gallery-row_item">
+        <div className="gallery-row_item-inner">
+          <div
+            className="gallery-row_item-img"
             style={{ backgroundImage: `url(${image})` }}
           />
-        </GridItemInner>
-      </GridItem>
+        </div>
+      </div>
     ))}
-  </Row>
+  </div>
 );
 
 const GalleryGrid = ({ galleryData, gridRef }) => {
   const imageRows = Object.values(galleryData.galleryImages).map(item => item.images);
 
   return (
-    <GridContainer ref={gridRef} className="grid">
+    <div ref={gridRef} className="gallery-grid">
       {imageRows.map((rowImages, rowIndex) => (
         <GalleryRow key={rowIndex} images={rowImages} rowIndex={rowIndex} />
       ))}
-    </GridContainer>
+    </div>
   );
 };
 

@@ -96,7 +96,7 @@ const Gallery = () => {
   useEffect(() => {
     let requestId;
     const render = () => {
-      const rows = gridRef.current?.querySelectorAll('.row');
+      const rows = gridRef.current?.querySelectorAll('.gallery-row');
 
       if (rows) {
         const numRows = rows.length;
