@@ -1,76 +1,19 @@
+// Import required dependencies
 import React, { useEffect } from 'react';
-import { Dialog, IconButton, Container, Grid, Typography, Link, Box, Divider } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Dialog, IconButton, Container, Grid, Typography, Box, Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import config from '../resources/config.json';
+import '../styles/aboutPage.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const StyledDialog = styled(Dialog)({
-  '& .MuiPaper-root': {
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
-    boxShadow: 'none',
-  }
-});
-
-const CloseButton = styled(IconButton)({
-  position: 'absolute',
-  right: '16px',
-  top: '16px',
-  color: 'white',
-  zIndex: 1000,
-  '&:hover': {
-    color: 'rgba(255, 255, 255, 0.8)',
-  },
-});
-
-const ContentContainer = styled(Container)({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  color: 'white',
-  marginTop: '128px',
-  height: '100vh',
-});
-
-const StyledDivider = styled(Divider)({
-  width: '60%',
-  margin: '48px auto',
-  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-});
-
-const IconContainer = styled(Box)({
-  display: 'flex',
-  justifyContent: 'center',
-  gap: '16px',
-  marginTop: '24px',
-  '& .MuiSvgIcon-root, & svg': {
-    fontSize: '2rem',
-    width: '2rem',
-    height: '2rem',
-    cursor: 'pointer',
-    transition: 'color 0.3s ease',
-    '&:hover': {
-      color: 'rgba(255, 255, 255, 0.7)',
-    }
-  }
-});
-
-const GridItem = styled(Grid)({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-const StyledLink = styled('a')({
-  color: 'inherit',
-  textDecoration: 'none',
-  cursor: 'pointer',
-});
-
+/**
+ * About component props:
+ * @param {boolean} open - Controls dialog visibility
+ * @param {function} onClose - Handler for closing the dialog
+ */
 const About = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) {
@@ -79,12 +22,24 @@ const About = ({ open, onClose }) => {
   }, [open]);
 
   return (
-    <StyledDialog fullScreen open={open} onClose={onClose}>
-      <CloseButton onClick={onClose} aria-label="close">
+    <Dialog fullScreen open={open} onClose={onClose} className="about-dialog">
+      <IconButton onClick={onClose} aria-label="close" className="close-button">
         <CloseIcon />
-      </CloseButton>
+      </IconButton>
 
-      <ContentContainer maxWidth="lg">
+      <Container maxWidth="lg" className="about-content-container">
+        <Typography
+          variant="h5"
+          align="center"
+          sx={{
+            maxWidth: '800px',
+            lineHeight: 1.8,
+            marginBottom: 2
+          }}
+        >
+          <span>{config.aboutOne}</span>
+        </Typography>
+
         <Typography
           variant="h5"
           align="center"
@@ -94,63 +49,57 @@ const About = ({ open, onClose }) => {
             marginBottom: 4
           }}
         >
-          <span>{config.aboutOne}</span>
-          <br /><br />
           <span>{config.aboutTwo}</span>
         </Typography>
 
-        <StyledDivider />
+        <Divider className="about-divider" />
 
-        <Grid container spacing={4}>
-          <GridItem item xs={12} md={4}>
+        <Grid container spacing={4} className="about-grid-container">
+          <Grid item xs={12} md={4} className="about-grid-item">
             <Typography variant="h4" gutterBottom align="center">
               Contact Us
             </Typography>
-            <IconContainer>
-            <StyledLink href={`mailto:${config.teamMail}`} target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faEnvelope} title="Send us email" />
-            </StyledLink>
-            </IconContainer>
-          </GridItem>
+            <Box className="about-icon-container">
+              <a href={`mailto:${config.teamMail}`} target="_blank" rel="noopener noreferrer" className="about-link">
+                <FontAwesomeIcon icon={faEnvelope} title="Send us email" />
+              </a>
+            </Box>
+          </Grid>
 
-          <GridItem item xs={12} md={4}>
+          <Grid item xs={12} md={4} className="about-grid-item">
             <Typography variant="h4" gutterBottom align="center">
               Join Us
             </Typography>
-            <IconContainer>
-            <StyledLink href={config.discordLink} target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faDiscord} title="Join us in Discord" />
-            </StyledLink>
-            </IconContainer>
-          </GridItem>
+            <Box className="about-icon-container">
+              <a href={config.discordLink} target="_blank" rel="noopener noreferrer" className="about-link">
+                <FontAwesomeIcon icon={faDiscord} title="Join us in Discord" />
+              </a>
+            </Box>
+          </Grid>
 
-          <GridItem item xs={12} md={4}>
+          <Grid item xs={12} md={4} className="about-grid-item">
             <Typography variant="h4" gutterBottom align="center">
               Support Us
             </Typography>
-            <IconContainer>
-            <StyledLink href={config.patreon} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faPatreon} title="Support us on Patreon" />
-            </StyledLink>
-            <StyledLink href={`mailto:${config.teamMail}`} target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faPaypal} title="Support us with Paypal" />
-            </StyledLink>
-            </IconContainer>
-          </GridItem>
+              <Box className="about-icon-container">
+              <a href={config.patreon} target="_blank" rel="noopener noreferrer" className="about-link">
+                <FontAwesomeIcon icon={faPatreon} title="Support us on Patreon" />
+              </a>
+              <a href={`mailto:${config.teamMail}`} target="_blank" rel="noopener noreferrer" className="about-link">
+                <FontAwesomeIcon icon={faPaypal} title="Support us with Paypal" />
+              </a>
+            </Box>
+          </Grid>
         </Grid>
 
-        <StyledDivider />
+        <Divider className="about-divider" />
 
-        <Typography
-          variant="subtitle1"
-          align="center"
-        >
+        <Typography variant="subtitle1" align="center" className="final-text">
           <span>{config.khajiit}</span>
-
         </Typography>
 
-      </ContentContainer>
-    </StyledDialog>
+      </Container>
+    </Dialog>
   );
 };
 
