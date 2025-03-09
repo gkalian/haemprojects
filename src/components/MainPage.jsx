@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Flip } from 'gsap/Flip';
+import { Button, Container, Box } from '@mui/material';
 import GalleryGrid from './GalleryGrid';
 import galleryData from '../resources/images.json';
 import { useMousePosition } from '../scripts/useMousePosition';
@@ -10,6 +11,11 @@ import '../styles/mainPage.css';
 
 gsap.registerPlugin(Flip);
 
+/**
+ * Interactive gallery component with mouse-responsive grid animations and modal sections
+ * Uses GSAP for parallax effects and Material-UI for layout components
+ * @returns {JSX.Element} Gallery component with animated grid and navigation buttons
+ */
 const Gallery = () => {
   const gridRef = useRef(null);
   const mousePos = useMousePosition();
@@ -63,21 +69,45 @@ const Gallery = () => {
     setIsAboutOpen(false);
   };
   return (
-    <div className="main-container">
-      <section className="intro-section">
+    <Container maxWidth={false} className="main-container">
+      <Box component="section" className="intro-section">
         <GalleryGrid galleryData={galleryData} gridRef={gridRef} />
-        <div className="button-container">
-          <button onClick={handleAboutClick} className="button about-button">
+        <Box className="button-container">
+          <Button 
+            onClick={handleAboutClick} 
+            variant="contained" 
+            size="large"
+            className="about-button"
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              },
+              margin: '0 8px'
+            }}
+          >
             About
-          </button>
-          <button onClick={handleProjectsClick} className="button projects-button">
+          </Button>
+          <Button 
+            onClick={handleProjectsClick} 
+            variant="contained" 
+            size="large"
+            className="projects-button"
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              },
+              margin: '0 8px'
+            }}
+          >
             Projects
-          </button>
-        </div>
+          </Button>
+        </Box>
         <About open={isAboutOpen} onClose={handleCloseAbout} />
         <Projects open={isProjectsOpen} onClose={handleCloseProjects} />
-      </section>
-    </div>
+      </Box>
+    </Container>
   );
 };
 
