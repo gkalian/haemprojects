@@ -104,8 +104,8 @@ const Projects = ({ open, onClose }) => {
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={6}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center' }}>
                 <Box
                   sx={{
                     width: '100%',
@@ -132,21 +132,32 @@ const Projects = ({ open, onClose }) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
                 <Typography
-                  variant="h4"
+                  variant="h3"
                   sx={{
                     fontWeight: 600,
                     letterSpacing: '0.5px',
-                    marginBottom: '16px',
-                    fontSize: '2.5rem',
+                    marginBottom: '8px',
                   }}
                 >
                   {project.title}
                 </Typography>
 
                 <Typography
-                  variant="body1"
+                  variant="h4"
+                  sx={{
+                    fontWeight: 600,
+                    letterSpacing: '0.5px',
+                    marginBottom: '16px',
+                    fontSize: '1rem',
+                  }}
+                >
+                 Released: {project.released}
+                </Typography>
+
+                <Typography
+                  variant="body2"
                   sx={{
                     color: 'rgba(255, 255, 255, 0.8)',
                     lineHeight: 1.6,
@@ -157,7 +168,7 @@ const Projects = ({ open, onClose }) => {
                   {project.description}
                 </Typography>
 
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ marginTop: 'auto', paddingTop: 3 }}>
                   {[
                     { href: project.nexusmodsLinkLE, text: 'NexusMods LE' },
                     { href: project.nexusmodsLinkSE, text: 'NexusMods SE' },
