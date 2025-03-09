@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Dialog, IconButton, Container, Grid, Typography, Link, Box } from '@mui/material';
+import { Dialog, IconButton, Container, Grid, Typography, Link, Box, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import SortIcon from '@mui/icons-material/Sort';
 import projectsData from '../resources/projects.json';
 
 /**
@@ -15,12 +16,27 @@ import projectsData from '../resources/projects.json';
  */
 const Projects = ({ open, onClose }) => {
   const [projects, setProjects] = useState(projectsData.projects);
+  const [isAscending, setIsAscending] = useState(true);
+
+  useEffect(() => {
+    const initialSortedProjects = [...projectsData.projects].sort((a, b) => b.id - a.id);
+    setProjects(initialSortedProjects);
+    setIsAscending(false);
+  }, []);
 
   useEffect(() => {
     if (!open) {
       document.activeElement?.blur();
     }
   }, [open]);
+
+  const handleSort = () => {
+    const sortedProjects = [...projects].sort((a, b) => {
+      return isAscending ? b.id - a.id : a.id - b.id;
+    });
+    setProjects(sortedProjects);
+    setIsAscending(!isAscending);
+  };
 
   return (
     <Dialog 
@@ -34,22 +50,43 @@ const Projects = ({ open, onClose }) => {
         }
       }}
     >
-      <IconButton 
-        onClick={onClose} 
-        aria-label="close"
-        sx={{
-          position: 'absolute',
-          right: '16px',
-          top: '16px',
-          color: 'white',
-          zIndex: 1000,
-          '&:hover': {
-            color: 'rgba(255, 255, 255, 0.8)',
-          },
-        }}
-      >
-        <CloseIcon />
-      </IconButton>
+      <Tooltip title="Sort by released time" arrow>
+        <IconButton 
+          onClick={handleSort} 
+          aria-label="sort"
+          sx={{
+            position: 'absolute',
+            right: '16px',
+            top: '64px',
+            color: 'white',
+            zIndex: 1000,
+            '&:hover': {
+              color: 'rgba(255, 255, 255, 0.8)',
+            },
+          }}
+        >
+          <SortIcon />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Close" arrow>
+        <IconButton 
+          onClick={onClose} 
+          aria-label="close"
+          sx={{
+            position: 'absolute',
+            right: '16px',
+            top: '16px',
+            color: 'white',
+            zIndex: 1000,
+            '&:hover': {
+              color: 'rgba(255, 255, 255, 0.8)',
+            },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Tooltip>
 
       <Container 
         maxWidth="lg"

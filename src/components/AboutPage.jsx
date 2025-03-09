@@ -1,6 +1,6 @@
 // Import required dependencies
 import React, { useEffect } from 'react';
-import { Dialog, IconButton, Container, Grid, Typography, Box, Divider } from '@mui/material';
+import { Dialog, IconButton, Tooltip, Container, Grid, Typography, Box, Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import config from '../resources/config.json';
 import '../styles/global.css';
@@ -30,30 +30,28 @@ const About = ({ open, onClose }) => {
         '& .MuiPaper-root': {
           bgcolor: 'rgba(0, 0, 0, 0.9)',
           boxShadow: 'none',
-          p: 3,
-          mt: '5px',
           fontFamily: 'inherit'
         }
       }}
     >
-      <IconButton 
-        onClick={onClose} 
-        aria-label="close" 
-        sx={{
-          position: 'absolute',
-          right: '32px',
-          top: '32px',
-          color: 'white',
-          zIndex: 9999,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            color: 'rgba(255, 255, 255, 0.8)'
-          }
-        }}
-      >
-        <CloseIcon />
-      </IconButton>
+      <Tooltip title="Close" arrow>
+        <IconButton 
+          onClick={onClose} 
+          aria-label="close"
+          sx={{
+            position: 'absolute',
+            right: '16px',
+            top: '16px',
+            color: 'white',
+            zIndex: 1000,
+            '&:hover': {
+              color: 'rgba(255, 255, 255, 0.8)',
+            },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Tooltip>
 
       <Container 
         maxWidth="lg" 
