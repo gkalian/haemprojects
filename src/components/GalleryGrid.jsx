@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Skeleton } from '@mui/material';
 import '../styles/galleryGrid.css';
 
 /**
@@ -12,15 +13,28 @@ import '../styles/galleryGrid.css';
  * @returns {JSX.Element} GalleryGrid component with responsive image layout
  */
 
-const GalleryRow = ({ images, rowIndex }) => (
+const GalleryRow = ({ images, rowIndex, isLoading }) => (
   <div key={rowIndex} className="gallery-row">
     {images.map((image, imageIndex) => (
       <div key={`${rowIndex}-${imageIndex}`} className="gallery-row_item">
         <div className="gallery-row_item-inner">
-          <div
-            className="gallery-row_item-img"
-            style={{ backgroundImage: `url(${image})` }}
-          />
+          {isLoading ? (
+            <Skeleton 
+              variant="rectangular" 
+              width="100%" 
+              height="100%" 
+              animation="wave"
+              sx={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                transform: 'none'
+              }}
+            />
+          ) : (
+            <div
+              className="gallery-row_item-img"
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          )}
         </div>
       </div>
     ))}
@@ -28,12 +42,42 @@ const GalleryRow = ({ images, rowIndex }) => (
 );
 
 const GalleryGrid = ({ galleryData, gridRef }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const imageRows = Object.values(galleryData.galleryImages).map(item => item.images);
+
+  useEffect(() => {
+
+    const preloadImages = async () => {
+      const imagePromises = imageRows.flat().map(imageUrl => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = imageUrl;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      try {
+        await Promise.all(imagePromises);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error loading images:', error);
+        setIsLoading(false); 
+      }
+    };
+
+    preloadImages();
+  }, [imageRows]);
 
   return (
     <div ref={gridRef} className="gallery-grid">
       {imageRows.map((rowImages, rowIndex) => (
-        <GalleryRow key={rowIndex} images={rowImages} rowIndex={rowIndex} />
+        <GalleryRow 
+          key={rowIndex} 
+          images={rowImages} 
+          rowIndex={rowIndex}
+          isLoading={isLoading}
+        />
       ))}
     </div>
   );
