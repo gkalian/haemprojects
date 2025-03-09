@@ -10,7 +10,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
     devServer: {
-      static: path.join(__dirname, "dist"),
+      static: path.join(__dirname, "public"),
       port: 3000,
       historyApiFallback: true,
       hot: true,
@@ -20,7 +20,7 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
-      publicPath: './'
+      publicPath: '/'
     },
     module: {
         rules: [

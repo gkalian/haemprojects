@@ -73,36 +73,14 @@ const Gallery = () => {
       <Box component="section" className="intro-section">
         <GalleryGrid galleryData={galleryData} gridRef={gridRef} />
         <Box className="button-container">
-          <Button 
-            onClick={handleAboutClick} 
-            variant="contained" 
-            size="large"
-            className="about-button"
-            sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              },
-              margin: '0 8px'
-            }}
-          >
-            About
-          </Button>
-          <Button 
-            onClick={handleProjectsClick} 
-            variant="contained" 
-            size="large"
-            className="projects-button"
-            sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              },
-              margin: '0 8px'
-            }}
-          >
-            Projects
-          </Button>
+        <div className="button-container">
+        <button onClick={handleAboutClick} className="button about-button">
+          About
+        </button>
+        <button onClick={handleProjectsClick} className="button projects-button">
+          Projects
+        </button>
+        </div>
         </Box>
         <About open={isAboutOpen} onClose={handleCloseAbout} />
         <Projects open={isProjectsOpen} onClose={handleCloseProjects} />
