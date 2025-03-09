@@ -183,11 +183,11 @@ const Projects = ({ open, onClose }) => {
 
                 <Box sx={{ marginTop: 'auto', paddingTop: 3 }}>
                   {[
-                    { href: project.nexusmodsLinkLE, text: 'NexusMods LE' },
-                    { href: project.nexusmodsLinkSE, text: 'NexusMods SE' },
-                    { href: project.bethesdaPC, text: 'Bethesda PC' },
-                    { href: project.bethesdaPS4, text: 'Bethesda PS4' },
-                    { href: project.bethesdaXB, text: 'Bethesda XB1' },
+                    { href: project.nexusmodsLinkLE, text: 'NexusMods LE', color: 'rgba(217, 143, 64, 0.7)' },
+                    { href: project.nexusmodsLinkSE, text: 'NexusMods SE', color: 'rgba(129, 150, 236, 0.7)' },
+                    { href: project.bethesdaPC, text: 'Bethesda PC', color: 'rgba(255, 255, 255, 0.4)' },
+                    { href: project.bethesdaPS4, text: 'Bethesda PS4', color: 'rgba(255, 255, 255, 0.4)' },
+                    { href: project.bethesdaXB, text: 'Bethesda XB1', color: 'rgba(255, 255, 255, 0.4)' },
                   ]
                     .filter(link => link.href)
                     .map((link, index) => (
@@ -208,9 +208,9 @@ const Projects = ({ open, onClose }) => {
                           transition: 'all 0.2s ease',
                           padding: '8px 16px',
                           borderRadius: 4,
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                          backgroundColor: link.color,
                           '&:hover': {
-                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                            backgroundColor: link.color.replace('0.4', '0.6'),
                           },
                         }}
                       >
