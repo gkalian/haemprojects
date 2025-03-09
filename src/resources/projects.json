@@ -3,7 +3,8 @@
         {
         "id": 1,
         "title": "White River House",
-        "description": "A small house in Morrowind style. House is located near the Anga's Mill (On the west way to Windhelm)",
+        "firstDescription": "Morrowind-styled player home located along Skyrim's White River near the Anga's Mill on the west way to Windhelm, offering a touch of Dunmer architecture in Nordic lands.",
+        "secondDescription": "The home provides a nostalgic retreat for fans of Morrowind's architectural style.",
         "image": "https://staticdelivery.nexusmods.com/mods/110/images/86758/86758-1512033614-1627530467.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/86758",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/12307",
@@ -15,7 +16,8 @@
     {
         "id": 2,
         "title": "Tel Mos",
-        "description": "A small house in mixed Dwemer and Telvanni style. Tel Mos is located near the Hillgrund's Tomb (On the way to Ivarstead).",
+        "firstDescription": "A small player home combines elements of Telvanni mushroom tower architecture with Dwemer technological features. .",
+        "secondDescription": "Tel Mos is located near the Hillgrund's Tomb on the way to Ivarstead",
         "image": "https://staticdelivery.nexusmods.com/mods/110/images/86469/86469-1511857590-2067601187.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/86758",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/11989",
@@ -27,7 +29,8 @@
     {
         "id": 3,
         "title": "Snippy - Droid Follower",
-        "description": "Snippy is a dwemer droid follower inspired by BB-8 from Star Wars. He is a non-combat follower with many functions.",
+        "firstDescription": " A unique Dwemer automaton follower inspired by BB-8 from Star Wars from Project AHO with his own personality and background story. Once a maintenance droid in the underground city, Snippy can be recruited as a companion with special combat abilities and interaction dialogues. ",
+        "secondDescription": "He is a non-combat follower with many functions.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/87967-1-1511102666.png",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/87967",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/13642",
@@ -39,7 +42,8 @@
     {
         "id": 4,
         "title": "Staff of Shalidor",
-        "description": "A small house on the tip of staff. Staff of Shalidor will be added to your inventory when you load the game. Equip staff and select an action. ",
+        "firstDescription": "A unique player home mod where your entire living space exists within an enchanted staff. When activated, it transports you to a pocket dimension containing a fully furnished home inspired by the legendary wizard Shalidor.",
+        "secondDescription": "Staff of Shalidor will be added to your inventory when you load the game. Equip staff and select an action.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/13764/13764-1511722209-1155645904.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/88091",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/13764",
@@ -51,7 +55,8 @@
     {
         "id": 5,
         "title": "Ja'wa Follower",
-        "description": "Ja'wa is a follower inspired by jawas from Star Wars. He has many functions. Ja'wa live in lodge near the Sunderstone Gorge.",
+        "firstDescription": "Ja'wa companion directly from Star Wars, The small hooded figure collects interesting technology and has unique dialogue and behaviors.",
+        "secondDescription": "Ja'wa live in lodge near the Sunderstone Gorge.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/14039/14039-1513022435-1817033097.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/88359",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/14039",
@@ -63,7 +68,8 @@
     {
         "id": 6,
         "title": "Project AHO",
-        "description": "Project AHO is a large quest modification, comparable in size to a medium-sized DLC. Designed in the best traditions of Bethesda Game Studios, this mod adds to Skyrim a hidden settlement of Great House Telvanni. Determine its fate for yourself!",
+        "firstDescription": "Project AHO - is a large quest modification, in size, comparable to a medium sized DLC. In this expansion, you will get acquainted with the history and inhabitants of Sadrith Kegran - a hidden settlement of Great House Telvanni, built on the ruins of a great Dwarven city",
+        "secondDescription": "Uncover the secrets of the most grand Dwemeri invention - Aetherium Hyperspace Observatory.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/15996/15996-1521738495-1159963936.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/90276",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/15996",
@@ -75,7 +81,8 @@
     {
         "id": 7,
         "title": "AHO - Dwemer Ship",
-        "description": "AHO - Aetherium Hyperspace Observatory - is a large mobile player house, in Dwemer style. It is a stand-alone player home, part of our big DLC - Project AHO",
+        "firstDescription": "AHO - Aetherium Hyperspace Observatory - is a large mobile player house, in Dwemer style. ",
+        "secondDescription": "It is a stand-alone player home, part of our big DLC - Project AHO",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/16468/90700-1523555069-112648956.png",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/90700",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/16468",
@@ -87,7 +94,8 @@
     {
         "id": 8,
         "title": "Hermit's Stump",
-        "description": "A small house in Morrowind style. Hermit's Stump is located in the marvelous Hermit's Cave near the Hillgrund's Tomb (On the way to Ivarstead).",
+        "firstDescription": "A small player home mod designed in the Morrowind architectural style.",
+        "secondDescription": "Hermit's Stump is located in the marvelous Hermit's Cave near the Hillgrund's Tomb on the way to Ivarstead.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/17247/91321-1526240642-63938988.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/91321",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/17247",
@@ -99,7 +107,8 @@
     {
         "id": 9,
         "title": "Carved Brink",
-        "description": "Carved Brink is a large quest modification, adds a daedric plan of Peryite - The Pits, and an unknown part of Oblivion - Faceted Stones.",
+        "firstDescription": "This quest mod takes you to a pocket realm of Oblivion associated with the Daedric Prince Peryite - The Pits, and an unknown part of Oblivion - Faceted Stones.",
+        "secondDescription": "",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/24351/24351-1553189630-1844394110.jpeg",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/96862",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/24351",
@@ -111,7 +120,8 @@
     {
         "id": 10,
         "title": "Wizard's Well",
-        "description": "A small house made only with vanilla assets in mixed Dwemer and Redoran style.",
+        "firstDescription": "A small house made only with vanilla assets in mixed Dwemer and Redoran style.",
+        "secondDescription": "Wizard's Well  is located near the Riften, Winterhold and Markarth.",
         "image": "https://staticdelivery.nexusmods.com/mods/1704/images/24578/24578-1553874348-1390686032.png",
         "nexusmodsLinkLE": "https://www.nexusmods.com/skyrim/mods/96965",
         "nexusmodsLinkSE": "https://www.nexusmods.com/skyrimspecialedition/mods/24578",

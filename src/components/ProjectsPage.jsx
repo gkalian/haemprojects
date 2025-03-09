@@ -163,9 +163,22 @@ const Projects = ({ open, onClose }) => {
                     lineHeight: 1.6,
                     fontSize: '1.1rem',
                     letterSpacing: '0.3px',
+                    marginBottom: '16px',
                   }}
                 >
-                  {project.description}
+                  {project.firstDescription}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    lineHeight: 1.6,
+                    fontSize: '1.1rem',
+                    letterSpacing: '0.3px',
+
+                  }}
+                >
+                  {project.secondDescription}
                 </Typography>
 
                 <Box sx={{ marginTop: 'auto', paddingTop: 3 }}>
