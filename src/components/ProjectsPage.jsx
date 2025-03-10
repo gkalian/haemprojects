@@ -188,6 +188,8 @@ const Projects = ({ open, onClose }) => {
                     { href: project.bethesdaPC, text: 'Bethesda PC', color: 'rgba(255, 255, 255, 0.4)' },
                     { href: project.bethesdaPS4, text: 'Bethesda PS4', color: 'rgba(255, 255, 255, 0.4)' },
                     { href: project.bethesdaXB, text: 'Bethesda XB1', color: 'rgba(255, 255, 255, 0.4)' },
+                    { href: project.tesallLE, text: 'TESAll', color: 'rgba(44, 129, 94, 0.4)' },
+                    { href: project.tesallSE, text: 'TESAll SE', color: 'rgba(94, 204, 158, 0.4)' },
                   ]
                     .filter(link => link.href)
                     .map((link, index) => (
