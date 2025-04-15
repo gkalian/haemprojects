@@ -3,25 +3,27 @@
         "snippy": {
         "title": "Snippy",
         "images": [
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967-3-1511102663.png",
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967/87967-1511595692-952660536.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967-1-1511102666.png",
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967/87967-1511595699-557709918.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967-2-1511102664.png",
-            "https://staticdelivery.nexusmods.com/mods/110/images/87967-7-1511102654.png"
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-3-1511102663.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-1511595692-952660536.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-1-1511102666.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-1511595699-557709918.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-2-1511102664.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-9-1511102650.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-0-1511102361.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/snippy/87967-1-1511102666.jpg"
         ]
         },
         "hermitsStump": {
         "title": "Hermit's Stump",
         "images": [
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526239697-1592802862.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526239793-311407881.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526240031-1848928848.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526240129-75883940.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526240201-1151229670.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526240232-982416658.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526239902-371560266.jpeg",
-            "https://staticdelivery.nexusmods.com/mods/110/images/91321/91321-1526240098-1613477280.jpeg"
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526239697-1592802862.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526239793-311407881.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526240031-1848928848.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526240129-75883940.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526240201-1151229670.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526240232-982416658.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526239902-371560266.jpg",
+            "https://raw.githubusercontent.com/gkalian/haemprojects/refs/heads/main/images/hermitsstump/91321-1526240098-1613477280.jpg"
         ]
         },
         "projectAHO": {
