@@ -174,7 +174,7 @@ const Projects = ({ open, onClose }) => {
                 <Box
                   sx={{
                     width: '100%',
-                    height: 420,
+                    height: 450,
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     borderRadius: 8,
                     overflow: 'hidden',
@@ -197,7 +197,7 @@ const Projects = ({ open, onClose }) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '750px'}}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '800px'}}>
                 <Typography
                   variant="h3"
                   sx={{
