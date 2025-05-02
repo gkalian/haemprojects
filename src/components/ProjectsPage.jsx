@@ -8,7 +8,7 @@ import projectsData from '../resources/projects.json';
  * Projects component displays a fullscreen dialog with a list of projects
  * Each project is displayed with an image, title, description and relevant links
  * Uses Material UI components for layout and styling
- * 
+ *
  * @param {Object} props - Component props
  * @param {boolean} props.open - Controls whether the dialog is open
  * @param {Function} props.onClose - Callback function to handle dialog close
@@ -39,9 +39,9 @@ const Projects = ({ open, onClose }) => {
   };
 
   return (
-    <Dialog 
-      fullScreen 
-      open={open} 
+    <Dialog
+      fullScreen
+      open={open}
       onClose={onClose}
       sx={{
         '& .MuiPaper-root': {
@@ -51,8 +51,8 @@ const Projects = ({ open, onClose }) => {
       }}
     >
       <Tooltip title="Sort by released time" arrow>
-        <IconButton 
-          onClick={handleSort} 
+        <IconButton
+          onClick={handleSort}
           aria-label="sort"
           sx={{
             position: 'absolute',
@@ -70,8 +70,8 @@ const Projects = ({ open, onClose }) => {
       </Tooltip>
 
       <Tooltip title="Close" arrow>
-        <IconButton 
-          onClick={onClose} 
+        <IconButton
+          onClick={onClose}
           aria-label="close"
           sx={{
             position: 'absolute',
@@ -88,15 +88,16 @@ const Projects = ({ open, onClose }) => {
         </IconButton>
       </Tooltip>
 
-      <Container 
+      <Container
         maxWidth="lg"
         sx={{
           marginTop: '64px',
-          color: 'white'
+          color: 'white',
+          width: "900px"
         }}
       >
         {projects.map((project) => (
-          <Box 
+          <Box
             key={project.id}
             sx={{
               margin: '16px 0',
@@ -147,15 +148,13 @@ const Projects = ({ open, onClose }) => {
                 <Typography
                   variant="h4"
                   sx={{
-                    fontWeight: 600,
                     letterSpacing: '0.5px',
                     marginBottom: '16px',
                     fontSize: '1rem',
                   }}
                 >
-                 Released: {project.released}
+                  Game: <span style={{ fontWeight: 600 }}>{project.game}</span>, Released: <span style={{ fontWeight: 600 }}>{project.released}</span>
                 </Typography>
-
                 <Typography
                   variant="body2"
                   sx={{
@@ -185,11 +184,13 @@ const Projects = ({ open, onClose }) => {
                   {[
                     { href: project.nexusmodsLinkLE, text: 'NexusMods LE', color: 'rgba(217, 143, 64, 0.7)' },
                     { href: project.nexusmodsLinkSE, text: 'NexusMods SE', color: 'rgba(129, 150, 236, 0.7)' },
+                    { href: project.nexusmodsOblRe, text: 'NexusMods', color: 'rgba(217, 143, 64, 0.7)' },
                     { href: project.bethesdaPC, text: 'Bethesda PC', color: 'rgba(255, 255, 255, 0.4)' },
                     { href: project.bethesdaPS4, text: 'Bethesda PS4', color: 'rgba(255, 255, 255, 0.4)' },
                     { href: project.bethesdaXB, text: 'Bethesda XB1', color: 'rgba(255, 255, 255, 0.4)' },
                     { href: project.tesallLE, text: 'TESAll', color: 'rgba(44, 129, 94, 0.4)' },
                     { href: project.tesallSE, text: 'TESAll SE', color: 'rgba(94, 204, 158, 0.4)' },
+                    { href: project.tesallOblRe, text: 'TESAll', color: 'rgba(94, 204, 158, 0.4)' },
                   ]
                     .filter(link => link.href)
                     .map((link, index) => (

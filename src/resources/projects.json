@@ -12,6 +12,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/8d7abd87-109b-46b9-8bc2-88136fd0e021/White_River_House__XB1_",
         "tesallLE": "",
+        "game": "Skyrim",
         "released": "04 Sept 2017"
     },
     {
@@ -26,6 +27,7 @@
         "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/ba7e7ef0-4a7a-43f9-95fb-e5d80a0b4691/Tel_Mos__PS4_",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/33c18faa-a7d3-4c42-8766-ff39897c3c8e/Tel_Mos__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/doma-dlya-igroka/9105-tel-mos",
+        "game": "Skyrim",
         "released": "16 Sept 2017"
     },
     {
@@ -40,6 +42,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/fb2b3211-b437-47a0-956e-f4c2c8c7fa46/Snippy___Droid_Follower__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/kompanoni/9258-snippi-dvemerskii-kompanon",
+        "game": "Skyrim",
         "released": "19 Nov 2017"
     },
     {
@@ -54,6 +57,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/b5564e25-1d65-4b75-8929-03f46e126614/Staff_of_Shalidor__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/doma-dlya-igroka/9283-posokh-shalidora",
+        "game": "Skyrim",
         "released": "26 Nov 2017"
     },
     {
@@ -68,6 +72,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/d17d053d-677e-48ba-af44-c115e4f0e9df/Ja_wa_Follower__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/kompanoni/9314-dzha-va",
+        "game": "Skyrim",
         "released": "11 Dec 2017"
     },
     {
@@ -82,6 +87,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/1a2da845-827e-42de-a1b6-a84cec0dc7f2/Project_AHO__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/kvesti/9507-project-aho-eterievaya-giperprostranstvennaya-observatoriya",
+        "game": "Skyrim",
         "released": "22 Mar 2018"
     },
     {
@@ -96,6 +102,7 @@
         "bethesdaPS4": "",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/95cb0697-5878-4b7d-a883-a476ab99655f/AHO___Dwemer_Ship__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/doma-dlya-igroka/9548-ego-dvemerskii-korabl",
+        "game": "Skyrim",
         "released": "12 Apr 2018"
     },
     {
@@ -110,6 +117,7 @@
         "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/691dd0fa-04a8-48d3-92d5-7330fed610d0/Hermit_s_Stump__PS4_",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/cf340f61-09b3-4aac-aa91-8668cbea352a/Hermit_s_Stump__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/doma-dlya-igroka/9594-pen-otshelnika",
+        "game": "Skyrim",
         "released": "13 May 2018"
     },
     {
@@ -125,6 +133,7 @@
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/5782bc8c-41e2-43a7-a341-50caafe85f53/Carved_Brink__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/kvesti/10505-haem-projects-carved-brink-le",
         "tesallSE": "https://tesall.club/files/modi-dlya-skyrim-se/kvesti/10506-haem-projects-carved-brink-sse",
+        "game": "Skyrim",
         "released": "21 Mar 2019"
     },
     {
@@ -139,7 +148,30 @@
         "bethesdaPS4": "https://creations.bethesda.net/en/skyrim/details/d9eac53c-5da8-4a7d-82a0-d58b79ce7b09/Wizard_s_Well__PS4_",
         "bethesdaXB": "https://creations.bethesda.net/en/skyrim/details/a5f93da4-4ff2-4c21-b400-58271ad35e48/Wizard_s_Well__XB1_",
         "tesallLE": "https://tesall.club/files/modi-dlya-skyrim/doma-dlya-igroka/10512-kolodets-volshebnika",
+        "game": "Skyrim",
         "released": "29 Mar 2019"
+    },
+    {
+        "id": 11,
+        "title": "Niben River House",
+        "firstDescription": "A small mage tower made using only vanilla assets. ",
+        "secondDescription": "Niben River House is located near the Leyawiin, just north of the city.",
+        "image": "https://staticdelivery.nexusmods.com/mods/7587/images/1155/1155-1745855870-809627250.jpeg",
+        "nexusmodsOblRe": "https://www.nexusmods.com/oblivionremastered/mods/1155",
+        "tesallOblRe": "https://tesall.club/files/modi-dlya-oblivion-remastered/14095-niben-river-house-dom-na-beregu-reki-niben",
+        "game": "Oblivion Remastered",
+        "released": "28 Apr 2025"
+    },
+    {
+        "id": 12,
+        "title": "Sheogorath's Stump",
+        "firstDescription": "Mushroomish house located on the island in Niben bay right to A Door. There is already a default map marker, if you do not have it, just swim to an island.",
+        "secondDescription": "Your personal brainroot stump is waiting for you.",
+        "image": "https://staticdelivery.nexusmods.com/mods/7587/images/1726/1726-1746105773-864794587.png",
+        "nexusmodsOblRe": "https://www.nexusmods.com/oblivionremastered/mods/1726",
+        "tesallOblRe": "https://tesall.club/files/modi-dlya-oblivion-remastered/14107-pen-sheogorata",
+        "game": "Oblivion Remastered",
+        "released": "01 May 2025"
     }
 ]
 }
