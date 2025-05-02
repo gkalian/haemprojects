@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Dialog, IconButton, Container, Grid, Typography, Link, Box, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import SortIcon from '@mui/icons-material/Sort';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import projectsData from '../resources/projects.json';
 
 /**
  * Projects component displays a fullscreen dialog with a list of projects
  * Each project is displayed with an image, title, description and relevant links
  * Uses Material UI components for layout and styling
- *
+ * 
  * @param {Object} props - Component props
  * @param {boolean} props.open - Controls whether the dialog is open
  * @param {Function} props.onClose - Callback function to handle dialog close
@@ -16,12 +18,14 @@ import projectsData from '../resources/projects.json';
  */
 const Projects = ({ open, onClose }) => {
   const [projects, setProjects] = useState(projectsData.projects);
-  const [isAscending, setIsAscending] = useState(true);
+  const [isNewest, setIsNewest] = useState(true);
+  const [selectedGame, setSelectedGame] = useState(null);
+  const uniqueGames = [...new Set(projectsData.projects.map(project => project.game))];
 
   useEffect(() => {
     const initialSortedProjects = [...projectsData.projects].sort((a, b) => b.id - a.id);
     setProjects(initialSortedProjects);
-    setIsAscending(false);
+    setIsNewest(true); 
   }, []);
 
   useEffect(() => {
@@ -32,10 +36,24 @@ const Projects = ({ open, onClose }) => {
 
   const handleSort = () => {
     const sortedProjects = [...projects].sort((a, b) => {
-      return isAscending ? b.id - a.id : a.id - b.id;
+      return isNewest ? a.id - b.id : b.id - a.id;
     });
     setProjects(sortedProjects);
-    setIsAscending(!isAscending);
+    setIsNewest(!isNewest);
+  };
+
+  const handleGameFilter = (game) => {
+    if (selectedGame === game) {
+      setSelectedGame(null);
+      setProjects([...projectsData.projects].sort((a, b) => 
+        isNewest ? b.id - a.id : a.id - b.id));
+    } else {
+      setSelectedGame(game);
+      const filteredProjects = projectsData.projects
+        .filter(project => project.game === game)
+        .sort((a, b) => isNewest ? b.id - a.id : a.id - b.id);
+      setProjects(filteredProjects);
+    }
   };
 
   return (
@@ -50,25 +68,6 @@ const Projects = ({ open, onClose }) => {
         }
       }}
     >
-      <Tooltip title="Sort by released time" arrow>
-        <IconButton
-          onClick={handleSort}
-          aria-label="sort"
-          sx={{
-            position: 'absolute',
-            right: '16px',
-            top: '64px',
-            color: 'white',
-            zIndex: 1000,
-            '&:hover': {
-              color: 'rgba(255, 255, 255, 0.8)',
-            },
-          }}
-        >
-          <SortIcon />
-        </IconButton>
-      </Tooltip>
-
       <Tooltip title="Close" arrow>
         <IconButton
           onClick={onClose}
@@ -88,12 +87,77 @@ const Projects = ({ open, onClose }) => {
         </IconButton>
       </Tooltip>
 
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          padding: '80px 0 20px',
+          gap: '16px' 
+        }}
+      >
+
+      {uniqueGames.map((game) => (
+        <Box
+          key={game}
+          onClick={() => handleGameFilter(game)}
+          sx={{
+            color: 'white',
+            padding: '8px 16px',
+            borderRadius: 20,
+            backgroundColor: selectedGame === game 
+              ? 'rgba(129, 150, 236, 0.7)' 
+              : 'rgba(255, 255, 255, 0.2)',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            '&:hover': {
+              backgroundColor: selectedGame === game 
+                ? 'rgba(129, 150, 236, 0.8)' 
+                : 'rgba(255, 255, 255, 0.3)',
+            },
+          }}
+        >
+          {game}
+        </Box>
+      ))}
+
+      <Box
+        onClick={handleSort}
+        sx={{
+          color: 'white',
+          padding: '8px 16px',
+          borderRadius: 20,
+          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+          cursor: 'pointer',
+          transition: 'all 0.2s ease',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px',
+          '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+          },
+        }}
+      >
+       {isNewest  ? 'New' : 'Old'}
+       {isNewest  ? (
+            <ArrowUpwardIcon sx={{ fontSize: '16px' }} />
+          ) : (
+            <ArrowDownwardIcon sx={{ fontSize: '16px' }} />
+          )}
+      </Box>
+
+      </Box>
+
       <Container
         maxWidth="lg"
         sx={{
-          marginTop: '64px',
           color: 'white',
-          width: "900px"
+          width: "800px",
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center', 
+          justifyContent: 'center'
         }}
       >
         {projects.map((project) => (
@@ -106,11 +170,11 @@ const Projects = ({ open, onClose }) => {
             }}
           >
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center' }}>
+              <Grid item xs={12} md={6}>
                 <Box
                   sx={{
                     width: '100%',
-                    height: 350,
+                    height: 420,
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     borderRadius: 8,
                     overflow: 'hidden',
@@ -133,7 +197,7 @@ const Projects = ({ open, onClose }) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '750px'}}>
                 <Typography
                   variant="h3"
                   sx={{
@@ -155,6 +219,7 @@ const Projects = ({ open, onClose }) => {
                 >
                   Game: <span style={{ fontWeight: 600 }}>{project.game}</span>, Released: <span style={{ fontWeight: 600 }}>{project.released}</span>
                 </Typography>
+
                 <Typography
                   variant="body2"
                   sx={{
