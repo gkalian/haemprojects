@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useWindowSize } from './useWindowSize';
+import { MOUSE_ANIMATION, VISUAL_EFFECTS } from '../constants/animationConstants';
 
 /**
  * Collection of functions to calculate various visual effects based on mouse position
@@ -13,7 +14,7 @@ const createCalculateValues = () => ({
    * @returns {number} Mapped translation value based on mouse position
    */
   mappedX: (mouseX, windowWidth) =>
-    (((mouseX / windowWidth) * 2 - 1) * 40 * windowWidth) / 100,
+    (((mouseX / windowWidth) * 2 - 1) * VISUAL_EFFECTS.TRANSLATE_MULTIPLIER * windowWidth) / 100,
 
   /**
    * Calculates the mapped skew value
@@ -22,7 +23,7 @@ const createCalculateValues = () => ({
    * @returns {number} Mapped skew value
    */
   mappedSkew: (mouseX, windowWidth) =>
-    ((mouseX / windowWidth) * 2 - 1) * 3,
+    ((mouseX / windowWidth) * 2 - 1) * VISUAL_EFFECTS.MAX_SKEW_ANGLE,
 
   /**
    * Calculates the mapped contrast value
@@ -31,11 +32,9 @@ const createCalculateValues = () => ({
    * @returns {number} Mapped contrast value
    */
   mappedContrast: (mouseX, windowWidth) => {
-    const centerContrast = 100;
-    const edgeContrast = 330;
     const t = Math.abs((mouseX / windowWidth) * 2 - 1);
     const factor = Math.pow(t, 2);
-    return centerContrast - factor * (centerContrast - edgeContrast);
+    return VISUAL_EFFECTS.CENTER_CONTRAST - factor * (VISUAL_EFFECTS.CENTER_CONTRAST - VISUAL_EFFECTS.EDGE_CONTRAST);
   },
 
   /**
@@ -45,9 +44,7 @@ const createCalculateValues = () => ({
    * @returns {number} Mapped scale value
    */
   mappedScale: (mouseX, windowWidth) => {
-    const centerScale = 1;
-    const edgeScale = 0.95;
-    return centerScale - Math.abs((mouseX / windowWidth) * 2 - 1) * (centerScale - edgeScale);
+    return VISUAL_EFFECTS.CENTER_SCALE - Math.abs((mouseX / windowWidth) * 2 - 1) * (VISUAL_EFFECTS.CENTER_SCALE - VISUAL_EFFECTS.EDGE_SCALE);
   },
 
   /**
@@ -57,11 +54,7 @@ const createCalculateValues = () => ({
    * @returns {number} Mapped brightness value
    */
   mappedBrightness: (mouseX, windowWidth) => {
-    const centerBrightness = 100;
-    const edgeBrightness = 50;
-    const t = Math.abs((mouseX / windowWidth) * 2 - 1);
-    const factor = Math.pow(t, 1.5);
-    return centerBrightness - factor * (centerBrightness - edgeBrightness);
+    return VISUAL_EFFECTS.CENTER_BRIGHTNESS - Math.abs((mouseX / windowWidth) * 2 - 1) * (VISUAL_EFFECTS.CENTER_BRIGHTNESS - VISUAL_EFFECTS.EDGE_BRIGHTNESS);
   }
 });
 
@@ -159,58 +152,109 @@ export const useMousePosition = () => {
   }), [windowSize.width, calculateValues]);
 
   useEffect(() => {
+    let animationFrameId;
+    let lastMouseMoveTime = Date.now();
+    let isAnimating = false;
+    const ANIMATION_STOP_DELAY = MOUSE_ANIMATION.ANIMATION_STOP_DELAY;
+    const LERP_THRESHOLD = MOUSE_ANIMATION.LERP_THRESHOLD;
+
     /**
-     * Handles mouse movement events and updates position and effects
+     * Checks if animation should continue based on value differences
+     * @param {Object} current - Current rendered values
+     * @param {Object} target - Target mapped values
+     * @returns {boolean} Whether animation should continue
+     */
+    const shouldContinueAnimation = (current, target) => {
+      return Math.abs(current.translateX - target.translateX) > LERP_THRESHOLD ||
+             Math.abs(current.skewX - target.skewX) > LERP_THRESHOLD ||
+             Math.abs(current.contrast - target.contrast) > LERP_THRESHOLD ||
+             Math.abs(current.scale - target.scale) > LERP_THRESHOLD ||
+             Math.abs(current.brightness - target.brightness) > LERP_THRESHOLD;
+    };
+
+    /**
+     * Animates the transition of rendered values with performance optimizations
+     */
+    const animate = () => {
+      const now = Date.now();
+      
+      setMousePos(prev => {
+        const newRenderedValues = {
+          translateX: lerp(prev.renderedValues.translateX, prev.mappedValues.translateX, MOUSE_ANIMATION.LERP_FACTOR),
+          skewX: lerp(prev.renderedValues.skewX, prev.mappedValues.skewX, MOUSE_ANIMATION.LERP_FACTOR),
+          contrast: lerp(prev.renderedValues.contrast, prev.mappedValues.contrast, MOUSE_ANIMATION.LERP_FACTOR),
+          scale: lerp(prev.renderedValues.scale, prev.mappedValues.scale, MOUSE_ANIMATION.LERP_FACTOR),
+          brightness: lerp(prev.renderedValues.brightness, prev.mappedValues.brightness, MOUSE_ANIMATION.LERP_FACTOR)
+        };
+
+        // Check if we should continue animating
+        const shouldContinue = shouldContinueAnimation(newRenderedValues, prev.mappedValues) &&
+                              (now - lastMouseMoveTime < ANIMATION_STOP_DELAY);
+
+        if (shouldContinue) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          isAnimating = false;
+        }
+
+        return {
+          ...prev,
+          renderedValues: newRenderedValues
+        };
+      });
+    };
+
+    /**
+     * Starts animation if not already running
+     */
+    const startAnimation = () => {
+      if (!isAnimating) {
+        isAnimating = true;
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    /**
+     * Handles mouse movement events with throttling
      * @param {MouseEvent} e - Mouse event object
      */
     const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
       const mappedValues = updateMappedValues(x);
+      lastMouseMoveTime = Date.now();
 
       setMousePos(prev => ({
         x,
         y,
         mappedValues,
-        renderedValues: {
-          translateX: lerp(prev.renderedValues.translateX, mappedValues.translateX, 0.1),
-          skewX: lerp(prev.renderedValues.skewX, mappedValues.skewX, 0.1),
-          contrast: lerp(prev.renderedValues.contrast, mappedValues.contrast, 0.1),
-          scale: lerp(prev.renderedValues.scale, mappedValues.scale, 0.1),
-          brightness: lerp(prev.renderedValues.brightness, mappedValues.brightness, 0.1)
-        }
+        renderedValues: prev.renderedValues // Keep current rendered values, let animation handle updates
       }));
+
+      startAnimation();
     };
 
-    /**
-     * ID for the animation frame request
-     * @type {number}
-     */
-    let animationFrameId;
-
-    /**
-     * Animates the transition of rendered values
-     */
-    const animate = () => {
-      setMousePos(prev => ({
-        ...prev,
-        renderedValues: {
-          translateX: lerp(prev.renderedValues.translateX, prev.mappedValues.translateX, 0.1),
-          skewX: lerp(prev.renderedValues.skewX, prev.mappedValues.skewX, 0.1),
-          contrast: lerp(prev.renderedValues.contrast, prev.mappedValues.contrast, 0.1),
-          scale: lerp(prev.renderedValues.scale, prev.mappedValues.scale, 0.1),
-          brightness: lerp(prev.renderedValues.brightness, prev.mappedValues.brightness, 0.1)
-        }
-      }));
-      animationFrameId = requestAnimationFrame(animate);
+    // Throttle mouse move events for better performance
+    let throttleTimeout;
+    const throttledMouseMove = (e) => {
+      if (!throttleTimeout) {
+        throttleTimeout = setTimeout(() => {
+          handleMouseMove(e);
+          throttleTimeout = null;
+        }, MOUSE_ANIMATION.MOUSE_THROTTLE_DELAY);
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    animate();
+    window.addEventListener('mousemove', throttledMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('mousemove', throttledMouseMove);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
     };
   }, [windowSize, updateMappedValues]);
 

@@ -7,6 +7,7 @@ import galleryData from '../resources/images.json';
 import { useMousePosition } from '../scripts/useMousePosition';
 import Projects from './ProjectsPage';
 import About from './AboutPage';
+import { GALLERY_ANIMATION } from '../constants/animationConstants';
 
 gsap.registerPlugin(Flip);
 
@@ -21,36 +22,60 @@ const Gallery = () => {
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 
+  // Store previous values to avoid unnecessary animations
+  const prevMousePosRef = useRef({
+    translateX: 0,
+    brightness: 100,
+    contrast: 100
+  });
+
   useEffect(() => {
-    let requestId;
-    const render = () => {
-      const rows = gridRef.current?.querySelectorAll('.gallery-row');
+    const rows = gridRef.current?.querySelectorAll('.gallery-row');
+    
+    if (!rows || rows.length === 0) return;
 
-      if (rows) {
-        const numRows = rows.length;
-        const middleRowIndex = Math.floor(numRows / 2);
+    const currentValues = mousePos.renderedValues;
+    const prevValues = prevMousePosRef.current;
+    
+    // Check if values have changed significantly to avoid unnecessary animations
+    const hasSignificantChange = 
+      Math.abs(currentValues.translateX - prevValues.translateX) > GALLERY_ANIMATION.CHANGE_THRESHOLD ||
+      Math.abs(currentValues.brightness - prevValues.brightness) > GALLERY_ANIMATION.CHANGE_THRESHOLD ||
+      Math.abs(currentValues.contrast - prevValues.contrast) > GALLERY_ANIMATION.CHANGE_THRESHOLD;
 
-        rows.forEach((row, i) => {
-          const rowIndex = i - middleRowIndex;
-          const multiplier = 1 - Math.abs(rowIndex) * 0.3;
+    if (!hasSignificantChange) return;
 
-          gsap.to(row, {
-            x: mousePos.renderedValues.translateX * multiplier,
-            filter: `brightness(${mousePos.renderedValues.brightness}%)
-                    contrast(${mousePos.renderedValues.contrast}%)`,
-            duration: 1,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          });
-        });
-      }
-
-      requestId = requestAnimationFrame(render);
+    // Update previous values
+    prevMousePosRef.current = {
+      translateX: currentValues.translateX,
+      brightness: currentValues.brightness,
+      contrast: currentValues.contrast
     };
 
-    render();
-    return () => cancelAnimationFrame(requestId);
-  }, [mousePos]);
+    const numRows = rows.length;
+    const middleRowIndex = Math.floor(numRows / 2);
+
+    // Use GSAP timeline for better performance
+    const tl = gsap.timeline();
+    
+    rows.forEach((row, i) => {
+      const rowIndex = i - middleRowIndex;
+      const multiplier = 1 - Math.abs(rowIndex) * GALLERY_ANIMATION.ROW_MULTIPLIER_FACTOR;
+
+      tl.to(row, {
+        x: currentValues.translateX * multiplier,
+        filter: `brightness(${currentValues.brightness}%) contrast(${currentValues.contrast}%)`,
+        duration: GALLERY_ANIMATION.DURATION,
+        ease: GALLERY_ANIMATION.EASE,
+        overwrite: 'auto'
+      }, 0); // Start all animations at the same time
+    });
+
+    // Cleanup function to kill timeline if component unmounts
+    return () => {
+      if (tl) tl.kill();
+    };
+  }, [mousePos.renderedValues]);
 
   const handleProjectsClick = () => {
     setIsProjectsOpen(true);
