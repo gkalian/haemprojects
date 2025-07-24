@@ -152,9 +152,11 @@ export const useMousePosition = () => {
   }), [windowSize.width, calculateValues]);
 
   useEffect(() => {
-    let animationFrameId;
+    let animationFrameId = null;
     let lastMouseMoveTime = Date.now();
     let isAnimating = false;
+    let throttleTimeout = null;
+    let isMounted = true;
     const ANIMATION_STOP_DELAY = MOUSE_ANIMATION.ANIMATION_STOP_DELAY;
     const LERP_THRESHOLD = MOUSE_ANIMATION.LERP_THRESHOLD;
 
@@ -176,8 +178,12 @@ export const useMousePosition = () => {
      * Animates the transition of rendered values with performance optimizations
      */
     const animate = () => {
+      if (!isMounted) {
+        return;
+      }
+
       const now = Date.now();
-      
+
       setMousePos(prev => {
         const newRenderedValues = {
           translateX: lerp(prev.renderedValues.translateX, prev.mappedValues.translateX, MOUSE_ANIMATION.LERP_FACTOR),
@@ -191,10 +197,11 @@ export const useMousePosition = () => {
         const shouldContinue = shouldContinueAnimation(newRenderedValues, prev.mappedValues) &&
                               (now - lastMouseMoveTime < ANIMATION_STOP_DELAY);
 
-        if (shouldContinue) {
+        if (shouldContinue && isMounted) {
           animationFrameId = requestAnimationFrame(animate);
         } else {
           isAnimating = false;
+          animationFrameId = null;
         }
 
         return {
@@ -208,7 +215,7 @@ export const useMousePosition = () => {
      * Starts animation if not already running
      */
     const startAnimation = () => {
-      if (!isAnimating) {
+      if (!isAnimating && isMounted) {
         isAnimating = true;
         animationFrameId = requestAnimationFrame(animate);
       }
@@ -219,6 +226,10 @@ export const useMousePosition = () => {
      * @param {MouseEvent} e - Mouse event object
      */
     const handleMouseMove = (e) => {
+      if (!isMounted) {
+        return;
+      }
+
       const x = e.clientX;
       const y = e.clientY;
       const mappedValues = updateMappedValues(x);
@@ -235,11 +246,12 @@ export const useMousePosition = () => {
     };
 
     // Throttle mouse move events for better performance
-    let throttleTimeout;
     const throttledMouseMove = (e) => {
-      if (!throttleTimeout) {
+      if (!throttleTimeout && isMounted) {
         throttleTimeout = setTimeout(() => {
-          handleMouseMove(e);
+          if (isMounted) {
+            handleMouseMove(e);
+          }
           throttleTimeout = null;
         }, MOUSE_ANIMATION.MOUSE_THROTTLE_DELAY);
       }
@@ -248,13 +260,21 @@ export const useMousePosition = () => {
     window.addEventListener('mousemove', throttledMouseMove, { passive: true });
 
     return () => {
+      isMounted = false;
+
       window.removeEventListener('mousemove', throttledMouseMove);
-      if (animationFrameId) {
+
+      if (animationFrameId !== null) {
         cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
       }
-      if (throttleTimeout) {
+
+      if (throttleTimeout !== null) {
         clearTimeout(throttleTimeout);
+        throttleTimeout = null;
       }
+
+      isAnimating = false;
     };
   }, [windowSize, updateMappedValues]);
 

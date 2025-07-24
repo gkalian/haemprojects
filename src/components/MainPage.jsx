@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Flip } from 'gsap/Flip';
-import { Button, Container, Box } from '@mui/material';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import GalleryGrid from './GalleryGrid';
 import galleryData from '../resources/images.json';
 import { useMousePosition } from '../scripts/useMousePosition';

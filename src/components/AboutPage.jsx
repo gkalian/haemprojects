@@ -1,6 +1,13 @@
 // Import required dependencies
 import React, { useEffect } from 'react';
-import { Dialog, IconButton, Tooltip, Container, Grid, Typography, Box, Divider } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import config from '../resources/config.json';
 import '../styles/global.css';
