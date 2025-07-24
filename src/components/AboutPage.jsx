@@ -29,10 +29,10 @@ const About = ({ open, onClose }) => {
   }, [open]);
 
   return (
-    <Dialog 
-      fullScreen 
-      open={open} 
-      onClose={onClose} 
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
       sx={{
         '& .MuiPaper-root': {
           bgcolor: 'rgba(0, 0, 0, 0.9)',
@@ -42,8 +42,8 @@ const About = ({ open, onClose }) => {
       }}
     >
       <Tooltip title="Close" arrow>
-        <IconButton 
-          onClick={onClose} 
+        <IconButton
+          onClick={onClose}
           aria-label="close"
           sx={{
             position: 'absolute',
@@ -60,8 +60,8 @@ const About = ({ open, onClose }) => {
         </IconButton>
       </Tooltip>
 
-      <Container 
-        maxWidth="lg" 
+      <Container
+        maxWidth="lg"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -96,7 +96,7 @@ const About = ({ open, onClose }) => {
           <span>{config.aboutTwo}</span>
         </Typography>
 
-        <Divider 
+        <Divider
           sx={{
             width: '60%',
             my: 6,
@@ -105,7 +105,7 @@ const About = ({ open, onClose }) => {
         />
 
         <Grid container spacing={4} sx={{ py: 5.5 }}>
-          <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Grid size={{ xs: 12, md:4 }} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Typography variant="h4" gutterBottom align="center">
               Contact Us
             </Typography>
@@ -131,7 +131,7 @@ const About = ({ open, onClose }) => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Grid size={{ xs: 12, md:4 }} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Typography variant="h4" gutterBottom align="center">
               Join Us
             </Typography>
@@ -157,7 +157,7 @@ const About = ({ open, onClose }) => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Grid size={{ xs: 12, md:4 }} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Typography variant="h4" gutterBottom align="center">
               Support Us
             </Typography>
@@ -187,7 +187,7 @@ const About = ({ open, onClose }) => {
           </Grid>
         </Grid>
 
-        <Divider 
+        <Divider
           sx={{
             width: '60%',
             my: 6,

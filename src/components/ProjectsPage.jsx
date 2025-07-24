@@ -17,7 +17,7 @@ import projectsData from '../resources/projects.json';
  * Projects component displays a fullscreen dialog with a list of projects
  * Each project is displayed with an image, title, description and relevant links
  * Uses Material UI components for layout and styling
- * 
+ *
  * @param {Object} props - Component props
  * @param {boolean} props.open - Controls whether the dialog is open
  * @param {Function} props.onClose - Callback function to handle dialog close
@@ -32,7 +32,7 @@ const Projects = ({ open, onClose }) => {
   useEffect(() => {
     const initialSortedProjects = [...projectsData.projects].sort((a, b) => b.id - a.id);
     setProjects(initialSortedProjects);
-    setIsNewest(true); 
+    setIsNewest(true);
   }, []);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Projects = ({ open, onClose }) => {
   const handleGameFilter = (game) => {
     if (selectedGame === game) {
       setSelectedGame(null);
-      setProjects([...projectsData.projects].sort((a, b) => 
+      setProjects([...projectsData.projects].sort((a, b) =>
         isNewest ? b.id - a.id : a.id - b.id));
     } else {
       setSelectedGame(game);
@@ -94,13 +94,13 @@ const Projects = ({ open, onClose }) => {
         </IconButton>
       </Tooltip>
 
-      <Box 
-        sx={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
           alignItems: 'center',
           padding: '80px 0 20px',
-          gap: '16px' 
+          gap: '16px'
         }}
       >
 
@@ -112,14 +112,14 @@ const Projects = ({ open, onClose }) => {
             color: 'white',
             padding: '8px 16px',
             borderRadius: 20,
-            backgroundColor: selectedGame === game 
-              ? 'rgba(129, 150, 236, 0.7)' 
+            backgroundColor: selectedGame === game
+              ? 'rgba(129, 150, 236, 0.7)'
               : 'rgba(255, 255, 255, 0.2)',
             cursor: 'pointer',
             transition: 'all 0.2s ease',
             '&:hover': {
-              backgroundColor: selectedGame === game 
-                ? 'rgba(129, 150, 236, 0.8)' 
+              backgroundColor: selectedGame === game
+                ? 'rgba(129, 150, 236, 0.8)'
                 : 'rgba(255, 255, 255, 0.3)',
             },
           }}
@@ -163,7 +163,7 @@ const Projects = ({ open, onClose }) => {
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center', 
+          alignItems: 'center',
           justifyContent: 'center'
         }}
       >
@@ -177,7 +177,7 @@ const Projects = ({ open, onClose }) => {
             }}
           >
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md:6 }} >
                 <Box
                   sx={{
                     width: '100%',
@@ -204,7 +204,7 @@ const Projects = ({ open, onClose }) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '800px'}}>
+              <Grid size={{ xs: 12, md:6 }} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '800px'}}>
                 <Typography
                   variant="h3"
                   sx={{
