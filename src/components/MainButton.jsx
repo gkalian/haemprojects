@@ -18,7 +18,7 @@ const MainButton = ({ children, onClick, sx = {} }) => (
       fontWeight: 600,
       fontFamily: 'inherit',
       fontSize: '1.5rem',
-      backgroundColor: 'transparent',
+      backgroundColor: '#0000002e',
       border: '1px solid rgba(0, 0, 0, 0.8)',
       borderRadius: '3rem',
       transition: 'all 0.3s',
@@ -29,7 +29,7 @@ const MainButton = ({ children, onClick, sx = {} }) => (
         boxShadow: '0 0 20px rgba(255, 255, 255, 0.4)',
         textShadow: '0 0 8px rgba(255, 255, 255, 0.4)',
         border: '1px solid #333',
-        backgroundColor: 'transparent',
+        backgroundColor: '#0000002e',
       },
       '&:focus': {
         outline: 'none',

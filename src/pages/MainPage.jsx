@@ -1,11 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import GalleryGrid from '../components/GalleryGrid';
 import MainButton from '../components/MainButton';
-import GradientOverlay from '../components/GradientOverlay';
 import Projects from './ProjectsPage';
 import About from './AboutPage';
-import useGalleryAnimation from '../scripts/useGalleryAnimation';
 import galleryData from '../resources/images.json';
 
 /**
@@ -13,7 +11,6 @@ import galleryData from '../resources/images.json';
  * and navigation buttons.
  */
 const MainPage = () => {
-  const gridRef = useRef(null);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -23,9 +20,6 @@ const MainPage = () => {
     setIsMounted(true);
     return () => setIsMounted(false);
   }, []);
-
-  // Use custom hook for gallery animations
-  useGalleryAnimation(gridRef);
 
   // Navigation handlers
   const handleProjectsClick = () => setIsProjectsOpen(true);
@@ -45,10 +39,7 @@ const MainPage = () => {
       }}
     >
       {/* Gallery Grid Container */}
-      {isMounted && <GalleryGrid ref={gridRef} galleryData={galleryData} />}
-
-      {/* Gradient Overlay */}
-      <GradientOverlay />
+      {isMounted && <GalleryGrid galleryData={galleryData} />}
 
       {/* Navigation Buttons */}
       <Box className="buttons"
