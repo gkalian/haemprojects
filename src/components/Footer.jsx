@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <Box
-      component="footer"
+      className="footer"
       sx={{
         position: 'fixed',
         bottom: 0,
@@ -32,7 +32,7 @@ const Footer = () => {
       <Typography
         variant="body2"
         component="span"
-        sx={{ 
+        sx={{
           fontFamily: 'inherit'
         }}
       >

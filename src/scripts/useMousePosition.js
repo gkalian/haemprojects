@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useWindowSize } from './useWindowSize';
-import { MOUSE_ANIMATION, VISUAL_EFFECTS } from '../constants/animationConstants';
+import { MOUSE_ANIMATION, VISUAL_EFFECTS } from './animationConstants';
 
 /**
  * Collection of functions to calculate various visual effects based on mouse position

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import '../styles/galleryGrid.css';
 
@@ -13,18 +13,21 @@ import '../styles/galleryGrid.css';
  * @returns {JSX.Element} GalleryGrid component with responsive image layout
  */
 
+/**
+ * GalleryRow component that renders a single row of images
+ */
 const GalleryRow = ({ images, rowIndex, isLoading }) => (
   <div key={rowIndex} className="gallery-row">
     {images.map((image, imageIndex) => (
       <div key={`${rowIndex}-${imageIndex}`} className="gallery-row_item">
         <div className="gallery-row_item-inner">
           {isLoading ? (
-            <Skeleton 
-              variant="rectangular" 
-              width="100%" 
-              height="100%" 
+            <Skeleton
+              variant="rectangular"
+              width="100%"
+              height="100%"
               animation="wave"
-              sx={{ 
+              sx={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 transform: 'none'
               }}
@@ -41,12 +44,14 @@ const GalleryRow = ({ images, rowIndex, isLoading }) => (
   </div>
 );
 
-const GalleryGrid = ({ galleryData, gridRef }) => {
+/**
+ * GalleryGrid component that displays images in a grid layout
+ */
+const GalleryGrid = forwardRef(({ galleryData }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
   const imageRows = Object.values(galleryData.galleryImages).map(item => item.images);
 
   useEffect(() => {
-
     const preloadImages = async () => {
       const imagePromises = imageRows.flat().map(imageUrl => {
         return new Promise((resolve, reject) => {
@@ -62,7 +67,7 @@ const GalleryGrid = ({ galleryData, gridRef }) => {
         setIsLoading(false);
       } catch (error) {
         console.error('Error loading images:', error);
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
 
@@ -70,17 +75,17 @@ const GalleryGrid = ({ galleryData, gridRef }) => {
   }, [imageRows]);
 
   return (
-    <div ref={gridRef} className="gallery-grid">
+    <div ref={ref} className="gallery-grid">
       {imageRows.map((rowImages, rowIndex) => (
-        <GalleryRow 
-          key={rowIndex} 
-          images={rowImages} 
+        <GalleryRow
+          key={rowIndex}
+          images={rowImages}
           rowIndex={rowIndex}
           isLoading={isLoading}
         />
       ))}
     </div>
   );
-};
+});
 
 export default GalleryGrid;

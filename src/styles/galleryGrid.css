@@ -1,16 +1,20 @@
 .gallery-grid {
   gap: 0.5rem;
-  flex: none;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 200vw;
   height: 200vh;
   display: grid;
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: 100%;
-  transform: rotate(-15deg) translateY(13%) translateX(10%);
+  transform: rotate(-15deg) translateY(-25%) translateX(-10%);
   transform-origin: center center;
   background-color: #000000;
   will-change: transform;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
 .gallery-grid > * {
@@ -22,10 +26,13 @@
   gap: 0.5rem;
   grid-template-columns: repeat(10, 1fr);
   will-change: transform, filter;
+  min-height: 0;  /* Fix for grid item sizing */
 }
 
 .gallery-row_item {
   position: relative;
+  min-height: 0;  /* Fix for grid item sizing */
+  min-width: 0;   /* Fix for grid item sizing */
 }
 
 .gallery-row_item-inner {
@@ -34,6 +41,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: 10px;
+  min-height: 0;  /* Fix for grid item sizing */
 }
 
 .gallery-row_item-img {
@@ -44,4 +52,5 @@
   position: absolute;
   top: 0;
   left: 0;
-} 
+  object-fit: cover;
+}
