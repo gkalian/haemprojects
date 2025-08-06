@@ -2,6 +2,7 @@
 node_modules
 /dist
 reports
+build
 
 # local env files
 .env.local
