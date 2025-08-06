@@ -10,8 +10,8 @@ export default defineConfig({
     open: true,
     host: true,
   },
-  // Use absolute paths for production to ensure correct asset loading on GitHub Pages
-  base: process.env.NODE_ENV === 'production' ? '/haemprojects/' : '/',
+  // Use root-relative paths
+  base: '/',
   build: {
     outDir: 'build',
     sourcemap: true,
