@@ -108,7 +108,7 @@ const About = ({ open, onClose }) => {
           }}
         />
 
-        <Grid container spacing={4} sx={{ py: 5.5 }}>
+        <Grid container spacing={4} sx={{ py: 5.5, width: "60%"}}>
           <Grid
             size={{ xs: 12, md: 4 }}
             sx={{
@@ -116,6 +116,7 @@ const About = ({ open, onClose }) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
+
             }}
           >
             <Typography variant="h4" gutterBottom align="center">
