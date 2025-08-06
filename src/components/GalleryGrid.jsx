@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Skeleton from '@mui/material/Skeleton';
-import useSimpleGalleryAnimation from '../scripts/useSimpleGalleryAnimation';
-import '../styles/galleryGrid.css';
+import React, { useState, useEffect, useRef } from "react";
+import Skeleton from "@mui/material/Skeleton";
+import useSimpleGalleryAnimation from "../scripts/useSimpleGalleryAnimation";
+import "../styles/galleryGrid.css";
 
 /**
  * GalleryGrid component that displays images in a rotated grid layout
@@ -28,8 +28,8 @@ const GalleryRow = ({ images, rowIndex, isLoading }) => (
               height="100%"
               animation="wave"
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                transform: 'none'
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                transform: "none",
               }}
             />
           ) : (
@@ -55,7 +55,9 @@ const GalleryGrid = ({ galleryData }) => {
   useSimpleGalleryAnimation(galleryContainerRef);
 
   // Flatten the image rows for the grid
-  const imageRows = Object.values(galleryData.galleryImages).map(item => item.images);
+  const imageRows = Object.values(galleryData.galleryImages).map(
+    (item) => item.images,
+  );
 
   // Simulate loading
   useEffect(() => {
@@ -80,6 +82,6 @@ const GalleryGrid = ({ galleryData }) => {
   );
 };
 
-GalleryGrid.displayName = 'GalleryGrid';
+GalleryGrid.displayName = "GalleryGrid";
 
 export default GalleryGrid;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 /**
  * Simplified mouse position hook with basic parallax effect
@@ -10,7 +10,7 @@ const useSimpleMousePosition = () => {
     y: 0,
     // Normalized values between -1 and 1
     nx: 0,
-    ny: 0
+    ny: 0,
   });
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const useSimpleMousePosition = () => {
       setMousePos({ x, y, nx, ny });
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return mousePos;

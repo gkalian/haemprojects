@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 /**
  * Simplified gallery animation using CSS transforms
@@ -14,7 +14,7 @@ const useSimpleGalleryAnimation = (galleryRef) => {
     if (!galleryRef.current) return;
 
     const gallery = galleryRef.current;
-    const items = gallery.querySelectorAll('.gallery-item');
+    const items = gallery.querySelectorAll(".gallery-item");
     let isAnimating = false;
 
     const handleMouseMove = (e) => {
@@ -30,8 +30,8 @@ const useSimpleGalleryAnimation = (galleryRef) => {
 
       // Update target values with reduced intensity for smoother effect
       targetValues.current = {
-        x: x * 10,  // Reduced from 20 to 10 for subtler movement
-        y: y * 5    // Reduced from 10 to 5 for subtler movement
+        x: x * 10, // Reduced from 20 to 10 for subtler movement
+        y: y * 5, // Reduced from 10 to 5 for subtler movement
       };
 
       if (!isAnimating) {
@@ -42,8 +42,10 @@ const useSimpleGalleryAnimation = (galleryRef) => {
 
     const animate = () => {
       // Smoothly interpolate current values towards target values
-      currentValues.current.x += (targetValues.current.x - currentValues.current.x) * 0.1;
-      currentValues.current.y += (targetValues.current.y - currentValues.current.y) * 0.1;
+      currentValues.current.x +=
+        (targetValues.current.x - currentValues.current.x) * 0.1;
+      currentValues.current.y +=
+        (targetValues.current.y - currentValues.current.y) * 0.1;
 
       // Calculate if we need to continue animating
       const dx = Math.abs(targetValues.current.x - currentValues.current.x);
@@ -78,10 +80,10 @@ const useSimpleGalleryAnimation = (galleryRef) => {
     };
 
     // Add event listener with passive true for better performance
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }

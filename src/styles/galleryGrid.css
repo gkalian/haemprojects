@@ -28,13 +28,13 @@
   gap: 0.5rem;
   grid-template-columns: repeat(10, 1fr);
   will-change: transform, filter;
-  min-height: 0;  /* Fix for grid item sizing */
+  min-height: 0; /* Fix for grid item sizing */
 }
 
 .gallery-row_item {
   position: relative;
-  min-height: 0;  /* Fix for grid item sizing */
-  min-width: 0;   /* Fix for grid item sizing */
+  min-height: 0; /* Fix for grid item sizing */
+  min-width: 0; /* Fix for grid item sizing */
 }
 
 .gallery-row_item-inner {
@@ -43,7 +43,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: 10px;
-  min-height: 0;  /* Fix for grid item sizing */
+  min-height: 0; /* Fix for grid item sizing */
 }
 
 .gallery-row_item-img {

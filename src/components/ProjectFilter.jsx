@@ -1,5 +1,5 @@
-import React from 'react';
-import Box from '@mui/material/Box';
+import React from "react";
+import Box from "@mui/material/Box";
 
 /**
  * ProjectFilter component for filtering projects by game
@@ -16,18 +16,20 @@ const ProjectFilter = ({ games, selectedGame, onFilter }) => (
         key={game}
         onClick={() => onFilter(game)}
         sx={{
-          color: 'white',
-          padding: '8px 16px',
+          color: "white",
+          padding: "8px 16px",
           borderRadius: 20,
-          backgroundColor: selectedGame === game
-            ? 'rgba(129, 150, 236, 0.7)'
-            : 'rgba(255, 255, 255, 0.2)',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease',
-          '&:hover': {
-            backgroundColor: selectedGame === game
-              ? 'rgba(129, 150, 236, 0.8)'
-              : 'rgba(255, 255, 255, 0.3)',
+          backgroundColor:
+            selectedGame === game
+              ? "rgba(129, 150, 236, 0.7)"
+              : "rgba(255, 255, 255, 0.2)",
+          cursor: "pointer",
+          transition: "all 0.2s ease",
+          "&:hover": {
+            backgroundColor:
+              selectedGame === game
+                ? "rgba(129, 150, 236, 0.8)"
+                : "rgba(255, 255, 255, 0.3)",
           },
         }}
       >

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
-import CloseIcon from '@mui/icons-material/Close';
-import projectsData from '../resources/projects.json';
-import ProjectCard from '../components/ProjectCard';
-import ProjectFilter from '../components/ProjectFilter';
-import ProjectSort from '../components/ProjectSort';
+import React, { useEffect, useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import IconButton from "@mui/material/IconButton";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Tooltip from "@mui/material/Tooltip";
+import CloseIcon from "@mui/icons-material/Close";
+import projectsData from "../resources/projects.json";
+import ProjectCard from "../components/ProjectCard";
+import ProjectFilter from "../components/ProjectFilter";
+import ProjectSort from "../components/ProjectSort";
 
 /**
  * Projects component displays a fullscreen dialog with a list of projects
@@ -24,10 +24,14 @@ const Projects = ({ open, onClose }) => {
   const [projects, setProjects] = useState(projectsData.projects);
   const [isNewest, setIsNewest] = useState(true);
   const [selectedGame, setSelectedGame] = useState(null);
-  const uniqueGames = [...new Set(projectsData.projects.map(project => project.game))];
+  const uniqueGames = [
+    ...new Set(projectsData.projects.map((project) => project.game)),
+  ];
 
   useEffect(() => {
-    const initialSortedProjects = [...projectsData.projects].sort((a, b) => b.id - a.id);
+    const initialSortedProjects = [...projectsData.projects].sort(
+      (a, b) => b.id - a.id,
+    );
     setProjects(initialSortedProjects);
     setIsNewest(true);
   }, []);
@@ -49,13 +53,16 @@ const Projects = ({ open, onClose }) => {
   const handleGameFilter = (game) => {
     if (selectedGame === game) {
       setSelectedGame(null);
-      setProjects([...projectsData.projects].sort((a, b) =>
-        isNewest ? b.id - a.id : a.id - b.id));
+      setProjects(
+        [...projectsData.projects].sort((a, b) =>
+          isNewest ? b.id - a.id : a.id - b.id,
+        ),
+      );
     } else {
       setSelectedGame(game);
       const filteredProjects = projectsData.projects
-        .filter(project => project.game === game)
-        .sort((a, b) => isNewest ? b.id - a.id : a.id - b.id);
+        .filter((project) => project.game === game)
+        .sort((a, b) => (isNewest ? b.id - a.id : a.id - b.id));
       setProjects(filteredProjects);
     }
   };
@@ -66,10 +73,10 @@ const Projects = ({ open, onClose }) => {
       open={open}
       onClose={onClose}
       sx={{
-        '& .MuiPaper-root': {
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          boxShadow: 'none',
-        }
+        "& .MuiPaper-root": {
+          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          boxShadow: "none",
+        },
       }}
     >
       <Tooltip title="Close" arrow>
@@ -77,13 +84,13 @@ const Projects = ({ open, onClose }) => {
           onClick={onClose}
           aria-label="close"
           sx={{
-            position: 'absolute',
-            right: '16px',
-            top: '16px',
-            color: 'white',
+            position: "absolute",
+            right: "16px",
+            top: "16px",
+            color: "white",
             zIndex: 1000,
-            '&:hover': {
-              color: 'rgba(255, 255, 255, 0.8)',
+            "&:hover": {
+              color: "rgba(255, 255, 255, 0.8)",
             },
           }}
         >
@@ -93,12 +100,12 @@ const Projects = ({ open, onClose }) => {
 
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '80px 0 20px',
-          gap: '16px',
-          flexWrap: 'wrap',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "80px 0 20px",
+          gap: "16px",
+          flexWrap: "wrap",
         }}
       >
         <ProjectFilter
@@ -106,29 +113,23 @@ const Projects = ({ open, onClose }) => {
           selectedGame={selectedGame}
           onFilter={handleGameFilter}
         />
-        <ProjectSort
-          isNewest={isNewest}
-          onSort={handleSort}
-        />
+        <ProjectSort isNewest={isNewest} onSort={handleSort} />
       </Box>
 
       <Container
         maxWidth="lg"
         sx={{
-          color: 'white',
+          color: "white",
           width: "800px",
-          margin: '0 auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-          />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </Container>
     </Dialog>

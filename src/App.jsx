@@ -1,6 +1,6 @@
-import React from 'react';
-import Main from './pages/MainPage';
-import Footer from './components/Footer';
+import React from "react";
+import Main from "./pages/MainPage";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
