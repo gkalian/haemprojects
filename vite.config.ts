@@ -22,6 +22,7 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Don't inline assets to ensure external URLs work correctly
     assetsInlineLimit: 0,
   },
   resolve: {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import useSimpleGalleryAnimation from '../scripts/useSimpleGalleryAnimation';
+import { preloadImage, getSafeImageUrl } from '../utils/imageUtils';
 import '../styles/galleryGrid.css';
 
 /**
@@ -35,7 +36,11 @@ const GalleryRow = ({ images, rowIndex, isLoading }) => (
           ) : (
             <div
               className="gallery-row_item-img"
-              style={{ backgroundImage: `url(${image})` }}
+              style={{ backgroundImage: `url(${getSafeImageUrl(image)})` }}
+              onError={(e) => {
+                // If image fails to load, set a transparent pixel as fallback
+                e.target.style.backgroundImage = 'url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)';
+              }}
             />
           )}
         </div>
