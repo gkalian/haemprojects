@@ -10,7 +10,8 @@ export default defineConfig({
     open: true,
     host: true,
   },
-  base: '/',
+  // Use absolute paths for production to ensure correct asset loading on GitHub Pages
+  base: process.env.NODE_ENV === 'production' ? '/haemprojects/' : '/',
   build: {
     outDir: 'build',
     sourcemap: true,
@@ -22,7 +23,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    // Don't inline assets to ensure external URLs work correctly
     assetsInlineLimit: 0,
   },
   resolve: {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import GalleryGrid from '../components/GalleryGrid';
-import MainButton from '../components/MainButton';
-import Projects from './ProjectsPage';
-import About from './AboutPage';
+import GalleryGrid from '../components/GalleryGrid.jsx';
+import MainButton from '../components/MainButton.jsx';
+import Projects from './ProjectsPage.jsx';
+import About from './AboutPage.jsx';
 import galleryData from '../resources/images.json';
 
 /**
