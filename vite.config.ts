@@ -12,7 +12,21 @@ export default defineConfig({
   },
   // Use root-relative paths
   base: '/',
+  css: {
+    devSourcemap: true,
+    // Ensure CSS is properly extracted in production
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/styles/global.css";`
+      }
+    }
+  },
   build: {
+    // Ensure CSS is included in the build
+    cssCodeSplit: false, // This ensures all CSS is in a single file
     outDir: 'build',
     sourcemap: true,
     rollupOptions: {
@@ -30,8 +44,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  },
-  css: {
-    devSourcemap: true,
   }
 });
