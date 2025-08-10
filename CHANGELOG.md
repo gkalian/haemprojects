@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/gkalian/haemprojects/compare/v1.0.0...v1.0.1) (2025-08-10)
+
+
+### Bug Fixes
+
+* move the version in package file ([f9ac6c4](https://github.com/gkalian/haemprojects/commit/f9ac6c4098af485f7a7d21c14f3a03c901d71b5e))
+
 # 1.0.0 (2025-08-06)
 
 
