@@ -1,6 +1,7 @@
 {
   "name": "haem-projects",
   "main": "index.js",
+  "version": "1.0.0",
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -67,6 +68,5 @@
         }
       ]
     ]
-  },
-  "version": "1.0.0"
+  }
 }
