@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/gkalian/haemprojects/compare/v1.0.2...v1.0.3) (2025-08-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-router-dom to v7.8.1 ([425acc6](https://github.com/gkalian/haemprojects/commit/425acc65f53c19997f301c80f35bc52d8075e317))
+
 ## [1.0.2](https://github.com/gkalian/haemprojects/compare/v1.0.1...v1.0.2) (2025-08-10)
 
 
